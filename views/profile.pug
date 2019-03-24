@@ -1,0 +1,16 @@
+extends layout
+block content
+    //retrieving full birth date and getting a cute dd/mon/yyyy date
+    -var bdate = user.birthDate;
+    -var splDt = String(bdate).split(' ');
+    -var fullDate = `${splDt[2]} / ${splDt[1]} / ${splDt[3]}`
+    .d-flex.justify-content-center.align-items-center.h-75
+        .card.profile
+            .card-header='User profile'
+            .card-body
+                ul.list-group.list-group-flush
+                    li.list-group-item=`Email: ${user.email}`
+                    li.list-group-item=`Name: ${user.name}`
+                    li.list-group-item=`Surname: ${user.surname}`
+                    li.list-group-item=`Birth Date: ${fullDate}`
+                    li.list-group-item=`Registration time: ${user.regDate}`

@@ -1,0 +1,24 @@
+extends layout
+
+block content
+    .d-flex.justify-content-center.align-items-center.h-75
+        form.card.login#loginForm(action='/login' method='post')
+            .card-header
+                h5.m-0='Log in'
+            .card-body.p-3
+                if(message.length > 0)
+                    div.alert.alert-danger.rounded-0.m-0
+                        strong=message
+                        button.close(type='button' data-dismiss='alert' aria-label='close')
+                            span(aria-hidden=true) &times;
+                .form-group
+                    label(for='email')='Email'
+                    input.form-control.rounded-0#email(type='email' name='email' aria-describedby='emailHelp' min=5)
+                .form-group
+                    label(for='email')='Password'
+                    input.form-control.rounded-0#password(type='password' name='password' autocomplete=true)
+                a.btn-link(href='/signup')='Don\'t have an account yet?'
+            .card-footer.d-flex.justify-content-end
+                button.btn.btn-outline-secondary.rounded-0(type='submit')='Sign in'
+    script.
+        $.getScript('/javascripts/login.js')

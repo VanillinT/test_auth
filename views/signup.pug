@@ -1,0 +1,35 @@
+extends layout
+block content
+    .d-flex.justify-content-center.align-items-center.pt-3
+        form.card.register#signupForm(action='/signup' method='post')
+            .card-header
+                h5.m-0='Register'
+            .catd-body.p-3
+                if(message.length > 0)
+                    div.alert.alert-danger.rounded-0.m-0
+                        strong=message
+                        button.close(type='button' data-dismiss='alert' aria-label='close')
+                            span(aria-hidden=true) &times;
+                .form-group
+                    label(for='email')='Email'
+                    input.form-control.rounded-0#email(type='email' name='email' aria-describedby='emailHelp' placeholder='Example@gmail.com')
+                    small.form-text.text-muted#emailHelp='You will use it to log into your account.'
+                .form-group
+                    label(for='password')='Password'
+                    input.form-control.rounded-0#password(type='password' name='password' aria-describedby='passwordHelp' placeholder="Password" autocomplete=true)
+                    small.form-text.text-muted#passwordHelp='Password must be 8-20 characters long.'
+                .row
+                    .col-5.form-group
+                        label(for='name')='Name'
+                        input.form-control.rounded-0#name(name='name' placeholder='Billy')
+                    .col.form-group
+                        label(for='surname')='Surname'
+                        input.form-control.rounded-0#surname(name='surname' placeholder='Billington')
+                .form-group
+                    label(for='bday')='Date of birth'
+                    input.form-control.rounded-0.col-4#bday(type='date' name='birthDate' aria-describedby='bdayHelp' placeholder='11.11.1991')
+                    small.form-text.text-muted#bdayHelp='We would like to wish you a happy birthday.'
+            .card-footer
+                button.btn.btn-outline-secondary.rounded-0#signup(type='submit')='Sign up'
+    script.
+        $.getScript('/javascripts/signup.js')

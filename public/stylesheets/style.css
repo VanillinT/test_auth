@@ -1,0 +1,22 @@
+body {
+  background-image: url("/images/background.png");
+  height: 100vh;
+}
+header {
+  font-size: 23px;
+  background-color: #fff;
+}
+form {
+  background-color: #fff;
+}
+.login {
+  width: 400px;
+}
+.register,
+.profile {
+  width: 600px;
+}
+.nav-icon {
+  width: 30px;
+  height: 30px;
+}

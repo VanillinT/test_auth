@@ -1,0 +1,28 @@
+//setting up header navs
+-var homeNav = {name:'Profile', href:'/profile', img:'icons/home.svg'}
+-var infoNav = {name:'Info', href:'#info', img:'icons/information-button.svg'}
+-var exitNav = {name:'Log out', href:'/signout', img:'icons/sign-out-option.svg'}
+-infoNav.modalToggle={'data-toggle': 'modal', 'data-target': '#infoModal'}
+-exitNav.hidden= !user
+-var navs=[homeNav, infoNav, exitNav]
+doctype html
+html
+  head
+    title=title
+    script(src='popper/dist/umd/popper.min.js')
+    link(rel='stylesheet' href='bootstrap/dist/css/bootstrap.min.css')
+    script(src='jquery/dist/jquery.min.js')
+    script(src='bootstrap/dist/js/bootstrap.min.js')
+    link(rel='stylesheet', href='/stylesheets/style.css')
+  body.p-3
+    header.d-flex.border
+      ul.nav
+        include infoModal
+        each nav in navs
+          li.nav-item.border-right(hidden=nav.hidden data-toggle='tooltip', title=nav.name)
+              a.nav-link.text-secondary(href=nav.href)&attributes(nav.modalToggle)
+                img.nav-icon(src=nav.img alt=nav.name)
+
+    block content
+    script.
+      $.getScript('/javascripts/main.js')
